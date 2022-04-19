@@ -42,7 +42,17 @@ def safebrowsingApiRequest(args):
     # Make request to Safebrowsing Lookup API
     response = requests.request("POST", url, data=body, params=key)
 
-    print(response.text)
+    response_json = json.loads(response.text)
+    
+    matches = []
+    for match in response_json['matches']:
+        matches.append(match['threat']['url'])
+    with open(args) as file:
+        for line in file:
+            if(line not in matches):
+                print(line,'✅')
+            else:
+                print(line,'❌')
 
 def main(arguments):
 
