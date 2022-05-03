@@ -20,7 +20,7 @@ Python script to check a list of IP addresses, to see the name of owner, block r
 Using ipwhois module.
 
 ### Usage
-`./ip-owner-check.py <inputfile.txt>`
+`./ip-owner-check.py <inputfile.txt>`f
 
 ### Output
 ```
