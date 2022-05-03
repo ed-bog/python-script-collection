@@ -45,7 +45,7 @@ def safebrowsingApiRequest(args):
     response_json = json.loads(response.text)
     
     matches = []
-    for match in response_json['matches']:
+    for match in (response_json['matches'] if "matches" in response_json else []):
         matches.append(match['threat']['url'])
     with open(args) as file:
         for line in file:
